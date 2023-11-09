@@ -1,0 +1,92 @@
+@import "https://unpkg.com/open-props";
+@import "https://unpkg.com/open-props/normalize.min.css";
+@import "https://unpkg.com/open-props/buttons.min.css";
+
+:root {
+    --text: var(--gray-10);
+    --background: var(--gray-0);
+
+    --gutter: var(--size-7);
+}
+
+@font-face {
+    font-family: "Antropos";
+    font-style: normal;
+    font-weight: 700;
+    src: url("antropos.ttf") format("truetype");
+}
+
+body {
+    padding-block: var(--gutter);
+    color: var(--text);
+    background: var(--background);
+    font-family: var(--font-sans);
+}
+
+h1,
+h2,
+h3 {
+    max-width: 20ch;
+    font-family: "Antropos";
+}
+
+:focus {
+    outline: 2px solid;
+    outline-offset: 0.3ch;
+}
+
+/* base selection styles that invert whatever colours are rendered */
+::selection {
+    background: var(--text);
+    color: var(--background);
+}
+
+.wrapper {
+    max-width: var(--wrapper-max-width, 100rem);
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+    position: relative;
+}
+
+.flow > * + * {
+    margin-top: var(--flow-space, 1em);
+}
+
+.with-sidebar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gutter);
+}
+
+.with-sidebar > :first-child {
+    flex-grow: 1;
+}
+
+.with-sidebar > :last-child {
+    flex-basis: 0;
+    flex-grow: 999;
+    min-inline-size: 50%;
+}
+
+.stack {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.stack > * {
+    margin-block: 0;
+}
+
+.stack > * + * {
+    margin-block-start: var(--gutter);
+}
+
+nav > ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav > ul > li {
+    padding: 0;
+}
