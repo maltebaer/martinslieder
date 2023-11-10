@@ -58,21 +58,25 @@
             <p>im Waldorfkindergarten Wall am Kiez, Potsdam</p>
         </main>
 
-        <footer>
+        <footer class="stack">
             <fieldset
+                class="cluster"
                 x-data="{
                     theme: $persist(''),
                     setTheme(theme) {
-                        if (theme) {
-                            this.theme = theme
-                        }
-
                         const html = document.firstElementChild
-                        html.setAttribute('data-theme', this.theme)
+                        html.setAttribute('data-theme', theme)
                     }
                 }"
                 x-on:change="setTheme($event.target.value)"
-                x-init="setTheme()"
+                x-init="
+                    if (!theme) {
+                        theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+                                ? 'dark' : 'light'
+                    }
+
+                    setTheme(theme)
+                "
             >
                 <legend>Mein Licht</legend>
                 <label>

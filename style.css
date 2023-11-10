@@ -52,20 +52,12 @@ h3 {
     margin-top: var(--flow-space, 1em);
 }
 
-.with-sidebar {
+.cluster {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--gutter);
-}
-
-.with-sidebar > :first-child {
-    flex-grow: 1;
-}
-
-.with-sidebar > :last-child {
-    flex-basis: 0;
-    flex-grow: 999;
-    min-inline-size: 50%;
+    gap: var(--gutter, 1rem);
+    justify-content: flex-start;
+    align-items: center;
 }
 
 .stack {
