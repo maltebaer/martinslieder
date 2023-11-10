@@ -13,11 +13,15 @@
         />
         <script
             defer
+            src="https://cdn.jsdelivr.net/npm/@alpinejs/persist@3.x.x/dist/cdn.min.js"
+        ></script>
+        <script
+            defer
             src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
         ></script>
     </head>
 
-    <body class="wrapper">
+    <body class="wrapper stack">
         <header>
             <nav>
                 <ul>
@@ -57,39 +61,35 @@
         <footer>
             <fieldset
                 x-data="{
+                    theme: $persist(''),
                     setTheme(theme) {
+                        if (theme) {
+                            this.theme = theme
+                        }
+
                         const html = document.firstElementChild
-                        html.setAttribute('data-theme', theme)
+                        html.setAttribute('data-theme', this.theme)
                     }
                 }"
                 x-on:change="setTheme($event.target.value)"
+                x-init="setTheme()"
             >
-                <legend>theme</legend>
-
+                <legend>Mein Licht</legend>
                 <label>
                     <input
                         type="radio"
-                        name="theme"
-                        value="auto"
-                        checked
-                    />
-                    <span>auto</span>
-                </label>
-                <label>
-                    <input
-                        type="radio"
-                        name="theme"
+                        x-model="theme"
                         value="light"
                     />
-                    <span>light</span>
+                    <span>geht an</span>
                 </label>
                 <label>
                     <input
                         type="radio"
-                        name="theme"
+                        x-model="theme"
                         value="dark"
                     />
-                    <span>dark</span>
+                    <span>geht aus</span>
                 </label>
             </fieldset>
         </footer>
