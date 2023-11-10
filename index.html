@@ -11,9 +11,13 @@
             rel="stylesheet"
             href="style.css"
         />
+        <script
+            defer
+            src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+        ></script>
     </head>
 
-    <body class="with-sidebar wrapper">
+    <body class="wrapper">
         <header>
             <nav>
                 <ul>
@@ -49,5 +53,45 @@
             <h1>Wir feiern St. Martin</h1>
             <p>im Waldorfkindergarten Wall am Kiez, Potsdam</p>
         </main>
+
+        <footer>
+            <fieldset
+                x-data="{
+                    setTheme(theme) {
+                        const html = document.firstElementChild
+                        html.setAttribute('data-theme', theme)
+                    }
+                }"
+                x-on:change="setTheme($event.target.value)"
+            >
+                <legend>theme</legend>
+
+                <label>
+                    <input
+                        type="radio"
+                        name="theme"
+                        value="auto"
+                        checked
+                    />
+                    <span>auto</span>
+                </label>
+                <label>
+                    <input
+                        type="radio"
+                        name="theme"
+                        value="light"
+                    />
+                    <span>light</span>
+                </label>
+                <label>
+                    <input
+                        type="radio"
+                        name="theme"
+                        value="dark"
+                    />
+                    <span>dark</span>
+                </label>
+            </fieldset>
+        </footer>
     </body>
 </html>
