@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+        <title>Martinslieder</title>
+        <link
+            rel="stylesheet"
+            href="style.css"
+        />
+        <script
+            defer
+            src="https://cdn.jsdelivr.net/npm/@alpinejs/persist@3.x.x/dist/cdn.min.js"
+        ></script>
+        <script
+            defer
+            src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+        ></script>
+    </head>
+
+    <body class="wrapper stack">
+        <header>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="/sankt-martin.html">Sankt Martin</a>
+                    </li>
+                    <li>
+                        <a href="/ich-gehe-mit-meiner-laterne.html"
+                            >Ich gehe mit meiner Laterne</a
+                        >
+                    </li>
+                    <li>
+                        <a href="/zwergenlied.html">Zwergenlied</a>
+                    </li>
+                    <li>
+                        <a href="/durch-die-straßen-auf-und-nieder.html"
+                            >Durch die Straßen auf und nieder</a
+                        >
+                    </li>
+                    <li>
+                        <a href="/laterne-laterne.html">Laterne, Laterne</a>
+                    </li>
+                    <li>
+                        <a href="/läutet-uns-zum-frieden.html"
+                            >Läutet uns zum Frieden</a
+                        >
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="flow">
+            <h1>Läutet uns zum Frieden</h1>
+            <p>
+                Läutet uns zum Frieden in dieser wirren Zeit<br />
+                Und mahnet uns hienie den an Gottes Ewigkeit, Gottes
+                Ewigkeit.<br />
+                Laudate deum omnis rerra!<br />
+            </p>
+        </main>
+
+        <footer class="stack">
+            <fieldset
+                class="cluster"
+                x-data="{
+                    theme: $persist(''),
+                    setTheme(theme) {
+                        const html = document.firstElementChild
+                        html.setAttribute('data-theme', theme)
+                    }
+                }"
+                x-on:change="setTheme($event.target.value)"
+                x-init="
+                    if (!theme) {
+                        theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+                                ? 'dark' : 'light'
+                    }
+
+                    setTheme(theme)
+                "
+            >
+                <legend>Mein Licht</legend>
+                <label>
+                    <input
+                        type="radio"
+                        x-model="theme"
+                        value="light"
+                    />
+                    <span>geht an</span>
+                </label>
+                <label>
+                    <input
+                        type="radio"
+                        x-model="theme"
+                        value="dark"
+                    />
+                    <span>geht aus</span>
+                </label>
+            </fieldset>
+        </footer>
+    </body>
+</html>
