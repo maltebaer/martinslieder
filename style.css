@@ -4,6 +4,7 @@
 @import "https://unpkg.com/open-props/theme.light.switch.min.css";
 @import "https://unpkg.com/open-props/theme.dark.switch.min.css";
 
+/* GLOBAL */
 :root {
     --text: var(--gray-10);
     --background: var(--gray-0);
@@ -35,12 +36,12 @@ h3 {
     outline-offset: 0.3ch;
 }
 
-/* base selection styles that invert whatever colours are rendered */
 ::selection {
     background: var(--text);
     color: var(--background);
 }
 
+/* COMPOSITION */
 .wrapper {
     max-width: var(--wrapper-max-width, 65ch);
     margin-inline: auto;
@@ -74,6 +75,7 @@ h3 {
     margin-block-start: var(--gutter);
 }
 
+/* BLOCKS */
 nav > ul {
     list-style: none;
     padding: 0;
