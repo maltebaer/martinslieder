@@ -31,6 +31,10 @@ h3 {
     font-family: "Antropos";
 }
 
+input[type="range"] {
+    width: 100%;
+}
+
 .text > p {
     font-size: var(--text-font-size);
 }
