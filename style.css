@@ -9,7 +9,7 @@
     --text: var(--gray-10);
     --background: var(--gray-0);
     --gutter: var(--size-7);
-    --text-font-size: var(--font-size-1);
+    --text-font-size: var(--font-size-2);
 }
 
 @font-face {

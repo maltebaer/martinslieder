@@ -143,6 +143,13 @@
                     }
                 }"
                 x-on:change="setFontSize($event.target.value)"
+                x-init="
+                if (!fontSize) {
+                    fontSize = '2'
+                }
+
+                setFontSize(fontSize)
+                "
             >
                 <legend>Schriftgröße</legend>
                 <label>
