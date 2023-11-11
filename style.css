@@ -8,8 +8,8 @@
 :root {
     --text: var(--gray-10);
     --background: var(--gray-0);
-
     --gutter: var(--size-7);
+    --text-font-size: var(--font-size-1);
 }
 
 @font-face {
@@ -29,6 +29,10 @@ h2,
 h3 {
     max-width: 20ch;
     font-family: "Antropos";
+}
+
+.text > p {
+    font-size: var(--text-font-size);
 }
 
 :focus {

@@ -55,12 +55,14 @@
 
         <main class="flow">
             <h1>Läutet uns zum Frieden</h1>
-            <p>
-                Läutet uns zum Frieden in dieser wirren Zeit<br />
-                Und mahnet uns hienie den an Gottes Ewigkeit, Gottes
-                Ewigkeit.<br />
-                Laudate deum omnis rerra!<br />
-            </p>
+            <div class="text flow">
+                <p>
+                    Läutet uns zum Frieden in dieser wirren Zeit<br />
+                    Und mahnet uns hienie den an Gottes Ewigkeit, Gottes
+                    Ewigkeit.<br />
+                    Laudate deum omnis rerra!<br />
+                </p>
+            </div>
         </main>
 
         <footer class="stack">
@@ -99,6 +101,29 @@
                         value="dark"
                     />
                     <span>ist aus</span>
+                </label>
+            </fieldset>
+
+            <fieldset
+                x-data="{
+                fontSize: $persist('2'),
+                setFontSize(fontSize) {
+                    const html = document.firstElementChild
+                    const value = `var(--font-size-${fontSize})`
+                    html.style.setProperty('--text-font-size', value)
+                }
+            }"
+                x-on:change="setFontSize($event.target.value)"
+            >
+                <legend>Schriftgröße</legend>
+                <label>
+                    <input
+                        type="range"
+                        min="0"
+                        max="4"
+                        step="1"
+                        x-model="fontSize"
+                    />
                 </label>
             </fieldset>
         </footer>

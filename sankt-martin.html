@@ -55,41 +55,43 @@
 
         <main class="flow">
             <h1>Sankt Martin</h1>
-            <p>
-                Sankt Martin, Sankt Martin<br />
-                Sankt Martin ritt durch Schnee und Wind<br />
-                Sein Ross, das trug ihn fort geschwind<br />
-                Sankt Martin ritt mit leichtem Mut<br />
-                Sein Mantel deckt ihn warm und gut<br />
-            </p>
-            <p>
-                Im Schnee saß, im Schnee saß<br />
-                Im Schnee, da saß ein armer Mann<br />
-                Hat Kleider nicht, hat Lumpen an<br />
-                "O, helft mir doch in meiner Not<br />
-                Sonst ist der bittre Frost mein Tod"<br />
-            </p>
-            <p>
-                Sankt Martin, Sankt Martin<br />
-                Sankt Martin zog die Zügel an<br />
-                Sein Ross stand still beim armen Mann<br />
-                Sankt Martin mit dem Schwerte<br />
-                Teilt den warmen Mantel unverweilt<br />
-            </p>
-            <p>
-                Sankt Martin, Sankt Martin<br />
-                Sankt Martin gab den halben still<br />
-                Der Bettler rasch ihm danken will<br />
-                Sankt Martin aber ritt in Eil'<br />
-                Hinweg mit seinem Mantelteil<br />
-            </p>
-            <p>
-                Im Traum, im Traum, im Traum<br />
-                Er schaut ein glänzende Licht<br />
-                Und eine milde Stimme spricht:<br />
-                "Hab Dank, du braver Reitermann<br />
-                Für das, was du mir getan."<br />
-            </p>
+            <div class="text flow">
+                <p>
+                    Sankt Martin, Sankt Martin<br />
+                    Sankt Martin ritt durch Schnee und Wind<br />
+                    Sein Ross, das trug ihn fort geschwind<br />
+                    Sankt Martin ritt mit leichtem Mut<br />
+                    Sein Mantel deckt ihn warm und gut<br />
+                </p>
+                <p>
+                    Im Schnee saß, im Schnee saß<br />
+                    Im Schnee, da saß ein armer Mann<br />
+                    Hat Kleider nicht, hat Lumpen an<br />
+                    "O, helft mir doch in meiner Not<br />
+                    Sonst ist der bittre Frost mein Tod"<br />
+                </p>
+                <p>
+                    Sankt Martin, Sankt Martin<br />
+                    Sankt Martin zog die Zügel an<br />
+                    Sein Ross stand still beim armen Mann<br />
+                    Sankt Martin mit dem Schwerte<br />
+                    Teilt den warmen Mantel unverweilt<br />
+                </p>
+                <p>
+                    Sankt Martin, Sankt Martin<br />
+                    Sankt Martin gab den halben still<br />
+                    Der Bettler rasch ihm danken will<br />
+                    Sankt Martin aber ritt in Eil'<br />
+                    Hinweg mit seinem Mantelteil<br />
+                </p>
+                <p>
+                    Im Traum, im Traum, im Traum<br />
+                    Er schaut ein glänzende Licht<br />
+                    Und eine milde Stimme spricht:<br />
+                    "Hab Dank, du braver Reitermann<br />
+                    Für das, was du mir getan."<br />
+                </p>
+            </div>
         </main>
 
         <footer class="stack">
@@ -128,6 +130,29 @@
                         value="dark"
                     />
                     <span>ist aus</span>
+                </label>
+            </fieldset>
+
+            <fieldset
+                x-data="{
+                    fontSize: $persist('2'),
+                    setFontSize(fontSize) {
+                        const html = document.firstElementChild
+                        const value = `var(--font-size-${fontSize})`
+                        html.style.setProperty('--text-font-size', value)
+                    }
+                }"
+                x-on:change="setFontSize($event.target.value)"
+            >
+                <legend>Schriftgröße</legend>
+                <label>
+                    <input
+                        type="range"
+                        min="0"
+                        max="4"
+                        step="1"
+                        x-model="fontSize"
+                    />
                 </label>
             </fieldset>
         </footer>

@@ -55,35 +55,37 @@
 
         <main class="flow">
             <h1>Zwergen&shy;lied</h1>
-            <p>
-                Laterne, Laterne, leuchtet wie die Sterne.<br />
-                Was klimmt und klettert durchs Gestein?<br />
-                Eins, zwei, drei, vier klein Brüderlein!<br />
-            </p>
-            <p>
-                Laterne, Laterne, leuchtet wie die Sterne.<br />
-                Purzmurzel heißt der erste Wicht,<br />
-                Der geht voran mit der Latücht.<br />
-            </p>
-            <p>
-                Laterne, Laterne, leuchtet wie die Sterne.<br />
-                Der zweite, der heißt Kiek in Pott,<br />
-                Der wandert wacker mit im Trott.<br />
-            </p>
-            <p>
-                Laterne, Laterne, leuchtet wie die Sterne.<br />
-                Der dritte heißt Klaas Klumdidum,<br />
-                Der guckt sich nach dem vierten um.<br />
-            </p>
-            <p>
-                Laterne, Laterne, leuchtet wie die Sterne.<br />
-                Der vierte, der ist lüelütt,<br />
-                Und heißt Hans-Jochen Winzelpütt.<br />
-            </p>
-            <p>
-                Laterne, Laterne, leuchtet wie die Sterne,<br />
-                Die Sterne, Laterne.<br />
-            </p>
+            <div class="text flow">
+                <p>
+                    Laterne, Laterne, leuchtet wie die Sterne.<br />
+                    Was klimmt und klettert durchs Gestein?<br />
+                    Eins, zwei, drei, vier klein Brüderlein!<br />
+                </p>
+                <p>
+                    Laterne, Laterne, leuchtet wie die Sterne.<br />
+                    Purzmurzel heißt der erste Wicht,<br />
+                    Der geht voran mit der Latücht.<br />
+                </p>
+                <p>
+                    Laterne, Laterne, leuchtet wie die Sterne.<br />
+                    Der zweite, der heißt Kiek in Pott,<br />
+                    Der wandert wacker mit im Trott.<br />
+                </p>
+                <p>
+                    Laterne, Laterne, leuchtet wie die Sterne.<br />
+                    Der dritte heißt Klaas Klumdidum,<br />
+                    Der guckt sich nach dem vierten um.<br />
+                </p>
+                <p>
+                    Laterne, Laterne, leuchtet wie die Sterne.<br />
+                    Der vierte, der ist lüelütt,<br />
+                    Und heißt Hans-Jochen Winzelpütt.<br />
+                </p>
+                <p>
+                    Laterne, Laterne, leuchtet wie die Sterne,<br />
+                    Die Sterne, Laterne.<br />
+                </p>
+            </div>
         </main>
 
         <footer class="stack">
@@ -122,6 +124,29 @@
                         value="dark"
                     />
                     <span>ist aus</span>
+                </label>
+            </fieldset>
+
+            <fieldset
+                x-data="{
+                fontSize: $persist('2'),
+                setFontSize(fontSize) {
+                    const html = document.firstElementChild
+                    const value = `var(--font-size-${fontSize})`
+                    html.style.setProperty('--text-font-size', value)
+                }
+            }"
+                x-on:change="setFontSize($event.target.value)"
+            >
+                <legend>Schriftgröße</legend>
+                <label>
+                    <input
+                        type="range"
+                        min="0"
+                        max="4"
+                        step="1"
+                        x-model="fontSize"
+                    />
                 </label>
             </fieldset>
         </footer>

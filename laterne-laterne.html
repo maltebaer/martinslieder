@@ -55,26 +55,28 @@
 
         <main class="flow">
             <h1>Laterne, Laterne</h1>
-            <p>
-                Laterne, Laterne, Sonne, Mond und Sterne<br />
-                Brenne auf mein Licht, brenne auf mein Licht<br />
-                Aber nur meine liebe Laterne nicht.<br />
-            </p>
-            <p>
-                Laterne, Laterne, Sonne, Mond und Sterne<br />
-                Scheine hell mein Licht, scheine hell mein Licht<br />
-                Bleibe immer mein schönes Laternenlicht!<br />
-            </p>
-            <p>
-                Laterne, Laterne, Sonne, Mond und Sterne<br />
-                Schlafe ein mein Wind, schlafe ein mein Wind<br />
-                Solltest warten bis wir zu Hause sind!<br />
-            </p>
-            <p>
-                Laterne, Laterne, Sonne, Mond und Sterne<br />
-                Habe ich ja so gerne, wenn ich sie nicht sehen kann<br />
-                Zünde ich mir ein Lichtlein an, in der Mondlaterne<br />
-            </p>
+            <div class="text flow">
+                <p>
+                    Laterne, Laterne, Sonne, Mond und Sterne<br />
+                    Brenne auf mein Licht, brenne auf mein Licht<br />
+                    Aber nur meine liebe Laterne nicht.<br />
+                </p>
+                <p>
+                    Laterne, Laterne, Sonne, Mond und Sterne<br />
+                    Scheine hell mein Licht, scheine hell mein Licht<br />
+                    Bleibe immer mein schönes Laternenlicht!<br />
+                </p>
+                <p>
+                    Laterne, Laterne, Sonne, Mond und Sterne<br />
+                    Schlafe ein mein Wind, schlafe ein mein Wind<br />
+                    Solltest warten bis wir zu Hause sind!<br />
+                </p>
+                <p>
+                    Laterne, Laterne, Sonne, Mond und Sterne<br />
+                    Habe ich ja so gerne, wenn ich sie nicht sehen kann<br />
+                    Zünde ich mir ein Lichtlein an, in der Mondlaterne<br />
+                </p>
+            </div>
         </main>
 
         <footer class="stack">
@@ -113,6 +115,29 @@
                         value="dark"
                     />
                     <span>ist aus</span>
+                </label>
+            </fieldset>
+
+            <fieldset
+                x-data="{
+                fontSize: $persist('2'),
+                setFontSize(fontSize) {
+                    const html = document.firstElementChild
+                    const value = `var(--font-size-${fontSize})`
+                    html.style.setProperty('--text-font-size', value)
+                }
+            }"
+                x-on:change="setFontSize($event.target.value)"
+            >
+                <legend>Schriftgröße</legend>
+                <label>
+                    <input
+                        type="range"
+                        min="0"
+                        max="4"
+                        step="1"
+                        x-model="fontSize"
+                    />
                 </label>
             </fieldset>
         </footer>
