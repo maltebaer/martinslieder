@@ -1,5 +1,5 @@
 ---
-layout: layouts.njk
+layout: layout.njk
 title: Wir feiern St. Martin
 ---
 
