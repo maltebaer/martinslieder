@@ -1,16 +1,20 @@
+---
+title: Martinslieder
+---
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8" />
+        <meta charset="UTF-8"/>
         <meta
             name="viewport"
             content="width=device-width, initial-scale=1.0"
-        />
-        <title>Martinslieder</title>
+/>
+        <title>{{ title }}</title>
         <link
             rel="stylesheet"
             href="style.css"
-        />
+/>
         <script
             defer
             src="https://cdn.jsdelivr.net/npm/@alpinejs/persist@3.x.x/dist/cdn.min.js"
@@ -54,10 +58,7 @@
         </header>
 
         <main class="flow">
-            <h1>Wir feiern St. Martin</h1>
-            <div class="text flow">
-                <p>im Waldorfkindergarten Wall am Kiez, Potsdam</p>
-            </div>
+            {{ content | safe }}
         </main>
 
         <footer class="stack">
@@ -86,7 +87,7 @@
                         type="radio"
                         x-model="theme"
                         value="light"
-                    />
+/>
                     <span>ist an</span>
                 </label>
                 <label>
@@ -94,7 +95,7 @@
                         type="radio"
                         x-model="theme"
                         value="dark"
-                    />
+/>
                     <span>ist aus</span>
                 </label>
             </fieldset>
@@ -125,7 +126,7 @@
                         max="5"
                         step="1"
                         x-model="fontSize"
-                    />
+/>
                 </label>
             </fieldset>
         </footer>
