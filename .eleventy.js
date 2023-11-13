@@ -4,9 +4,17 @@ function sortByOrder(values) {
 }
 
 module.exports = function (eleventyConfig) {
-    eleventyConfig.addPassthroughCopy("style.css");
+    eleventyConfig.addPassthroughCopy("content/style.css");
 
-    eleventyConfig.addPassthroughCopy("antropos.ttf");
+    eleventyConfig.addPassthroughCopy("content/antropos.ttf");
 
     eleventyConfig.addFilter("sortByOrder", sortByOrder);
+
+    return {
+        dir: {
+            input: "content",          // default: "."
+            includes: "../_includes",  // default: "_includes"
+            output: "_site"
+        }
+    }
 };
