@@ -4,14 +4,12 @@
         <meta charset="UTF-8"/>
         <meta
             name="viewport"
-            content="width=device-width, initial-scale=1.0"
-/>
+            content="width=device-width, initial-scale=1.0"/>
         <title>
             {% if title %}{{ title }} | {% endif %}Martinslieder</title>
         <link
             rel="stylesheet"
-            href="/style.css"
-/>
+            href="/style.css"/>
         <script
             defer
             src="https://cdn.jsdelivr.net/npm/@alpinejs/persist@3.x.x/dist/cdn.min.js"
@@ -57,23 +55,20 @@
                     }
 
                     setTheme(theme)
-                "
-            >
+                ">
                 <legend>Mein Licht</legend>
                 <label>
                     <input
                         type="radio"
                         x-model="theme"
-                        value="light"
-/>
+                        value="light"/>
                     <span>ist an</span>
                 </label>
                 <label>
                     <input
                         type="radio"
                         x-model="theme"
-                        value="dark"
-/>
+                        value="dark"/>
                     <span>ist aus</span>
                 </label>
             </fieldset>
@@ -94,8 +89,7 @@
                     }
 
                     setFontSize(fontSize)
-                "
-            >
+                ">
                 <legend>Schriftgröße</legend>
                 <label>
                     <input
@@ -103,8 +97,7 @@
                         min="1"
                         max="5"
                         step="1"
-                        x-model="fontSize"
-/>
+                        x-model="fontSize"/>
                 </label>
             </fieldset>
         </footer>
