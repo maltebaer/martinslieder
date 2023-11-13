@@ -35,7 +35,7 @@ input[type="range"] {
     width: 100%;
 }
 
-.text > p {
+main > p {
     font-size: var(--text-font-size);
 }
 
